@@ -26,10 +26,6 @@ public class FileUploadServiceEndPoint {
     public Response uploadBinary(@MultipartForm CsvFile csvFile) throws IOException {
         BufferedReader fileReader = null;
         String line = "";
-        JsonObject jsonFile = Json.createObjectBuilder()
-                .add("length", csvFile.getData().length)
-                .add("file", csvFile.getData().toString())
-                .build();
 
         System.out.println("===========================================================================================");
         File tmpFile = File.createTempFile("tmpcsv", ".csv");
@@ -56,10 +52,6 @@ public class FileUploadServiceEndPoint {
 
         tmpFile.delete();
 
-        return Response.ok(jsonFile).build();
-    }
-
-    private String removeDoubleQuotes(String input) {
-        return input.replace("\"", "");
+        return Response.status(Response.Status.OK).build();
     }
 }
