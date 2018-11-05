@@ -1,2 +1,4 @@
 # IncomeExpensesAccounting
-- JEE-Server
+- Michael Frech
+- Julian Nobis
+- Lukas Stransky
