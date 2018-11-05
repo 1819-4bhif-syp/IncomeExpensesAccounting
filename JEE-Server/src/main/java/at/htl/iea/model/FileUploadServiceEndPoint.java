@@ -30,10 +30,8 @@ public class FileUploadServiceEndPoint {
         System.out.println("===========================================================================================");
         File tmpFile = File.createTempFile("tmpcsv", ".csv");
         FileOutputStream fo = new FileOutputStream(tmpFile.getAbsolutePath());
-        System.out.println(csvFile);
         fo.write(csvFile.getData());
         fo.close();
-        System.out.println("file saved");
         int cnt = 0;
         try {
             CSVReader csvReader = new CSVReader(new InputStreamReader(new FileInputStream(tmpFile),"UTF-16"),'\t');
