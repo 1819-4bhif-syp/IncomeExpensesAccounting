@@ -34,3 +34,13 @@
 - Gleichzeitig wird der empfangene Content am JEE-Server im Log ausgegeben:
 
 <img src="images/wildfly-log.png" />
+
+## Beenden des Prototype
+
+Der nginx-Webserver wird mit 
+
+```
+docker-compose down
+```
+
+wieder beendet.
