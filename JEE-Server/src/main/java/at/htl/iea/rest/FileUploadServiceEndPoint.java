@@ -1,5 +1,6 @@
-package at.htl.iea.model;
+package at.htl.iea.rest;
 
+import at.htl.iea.model.CsvFile;
 import com.opencsv.CSVReader;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 
@@ -18,6 +19,11 @@ import java.util.Scanner;
 
 @Path("files")
 public class FileUploadServiceEndPoint {
+
+    @GET
+    public Response hello() {
+        return Response.status(Response.Status.OK).entity("Connected to project IEA ...").build();
+    }
 
     @POST
     @Path("uploadcsv")
@@ -52,5 +58,13 @@ public class FileUploadServiceEndPoint {
         tmpFile.delete();
 
         return Response.status(Response.Status.OK).build();
+    }
+
+    @POST
+    @Path("uploadtext")
+    @Consumes({MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Response uploadText(String content) {
+        System.out.println(content);
+        return Response.ok("content recveived").build();
     }
 }

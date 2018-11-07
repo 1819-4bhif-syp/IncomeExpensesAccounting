@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:1.15.6
+    container_name: nginx
+    volumes:
+    - ./conf.d/:/etc/nginx/conf.d/
+    - ./wwwroot/:/var/www/
+    ports:
+    - "80:80"
+    environment:
+    - NGINX_HOST=example.at
+    - NGINX_PORT=80
+
+#https://www.linode.com/docs/applications/containers/how-to-use-docker-compose/
+#http://geekyplatypus.com/dockerise-your-php-application-with-nginx-and-php7-fpm/
